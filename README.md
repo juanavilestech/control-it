@@ -1,4 +1,4 @@
-# Control IT - Sistema de Gestión de Servicios IT MUCHISISISISIMO TEXTO (toda mi contribucion hasta el momento)
+# Control IT - Sistema de Gestión de Servicios IT
 
 Sistema web completo para la gestión de trabajos de servicios IT con autenticación de usuarios, control automático de inventario y dashboard en tiempo real.
 

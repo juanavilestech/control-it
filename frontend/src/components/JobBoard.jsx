@@ -12,6 +12,19 @@ const JobBoard = () => {
       .catch(err => console.error('Error fetching jobs:', err));
   }, []);
 
+  const formatDate = (dateString) => {
+    // Parse the date string correctly to avoid timezone issues
+    const date = new Date(dateString);
+    // Add timezone offset to get the correct local date
+    const localDate = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
+    
+    return localDate.toLocaleDateString('es-AR', { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric'
+    });
+  };
+
   return (
     <div className="flex flex-col">
       <div className="mb-4 flex justify-end">
@@ -51,7 +64,7 @@ const JobBoard = () => {
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {new Date(job.date).toLocaleDateString()}
+                      {formatDate(job.date)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <Link to={`/jobs/${job.id}/edit`} className="text-indigo-600 hover:text-indigo-900">Editar</Link>

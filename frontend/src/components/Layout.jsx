@@ -1,12 +1,77 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import '../styles/christmas-theme.css';
 
 const Layout = ({ children }) => {
   const location = useLocation();
   const { user, logout } = useAuth();
+  const [isChristmasTheme, setIsChristmasTheme] = useState(false);
+
+  // Load theme preference from localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('christmasTheme');
+    if (savedTheme === 'true') {
+      setIsChristmasTheme(true);
+      document.body.classList.add('christmas-theme');
+    }
+  }, []);
+
+  // Toggle Christmas theme
+  const toggleChristmasTheme = () => {
+    const newTheme = !isChristmasTheme;
+    setIsChristmasTheme(newTheme);
+    
+    if (newTheme) {
+      document.body.classList.add('christmas-theme');
+      localStorage.setItem('christmasTheme', 'true');
+    } else {
+      document.body.classList.remove('christmas-theme');
+      localStorage.setItem('christmasTheme', 'false');
+    }
+  };
+
+  // Generate snowflakes
+  const generateSnowflakes = () => {
+    const snowflakes = [];
+    for (let i = 0; i < 50; i++) {
+      snowflakes.push(
+        <div
+          key={i}
+          className="snowflake"
+          style={{
+            left: `${Math.random() * 100}%`,
+            animationDuration: `${Math.random() * 3 + 2}s`,
+            animationDelay: `${Math.random() * 5}s`,
+            fontSize: `${Math.random() * 10 + 10}px`,
+          }}
+        >
+          ❄
+        </div>
+      );
+    }
+    return snowflakes;
+  };
+
+  // Generate Christmas lights
+  const generateLights = () => {
+    const lights = [];
+    for (let i = 0; i < 30; i++) {
+      lights.push(<div key={i} className="christmas-light" />);
+    }
+    return lights;
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
+      {/* Snowflakes */}
+      {isChristmasTheme && (
+        <>
+          <div className="snowflakes">{generateSnowflakes()}</div>
+          <div className="christmas-lights">{generateLights()}</div>
+        </>
+      )}
+
       <nav className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -31,8 +96,28 @@ const Layout = ({ children }) => {
               </div>
             </div>
 
-            {/* Right Side: User Info & Logout */}
+            {/* Right Side: Christmas Toggle, User Info & Logout */}
             <div className="flex items-center gap-4">
+              {/* Christmas Theme Toggle */}
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-medium text-gray-600" title="Tema Navideño">
+                  🎄
+                </span>
+                <button
+                  onClick={toggleChristmasTheme}
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                    isChristmasTheme ? 'bg-red-600 focus:ring-red-500' : 'bg-gray-300 focus:ring-gray-400'
+                  }`}
+                  title={isChristmasTheme ? 'Desactivar tema navideño' : 'Activar tema navideño'}
+                >
+                  <span
+                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300 ${
+                      isChristmasTheme ? 'translate-x-6' : 'translate-x-1'
+                    }`}
+                  />
+                </button>
+              </div>
+
               <span className="text-sm font-medium text-gray-700 bg-gray-100 px-4 py-1.5 rounded-full shadow-sm">
                 {user?.username}
               </span>

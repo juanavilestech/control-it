@@ -1,0 +1,305 @@
+/* Christmas Theme Styles */
+
+/* Snowflakes Animation */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) translateX(100px);
+    opacity: 0.3;
+  }
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Christmas Theme Active */
+body.christmas-theme {
+  background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 50%, #1a472a 100%);
+  background-attachment: fixed;
+}
+
+/* Snowflakes Container */
+.christmas-theme .snowflakes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.christmas-theme .snowflake {
+  position: absolute;
+  top: -10vh;
+  color: white;
+  font-size: 1em;
+  animation: snowfall linear infinite;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+/* Navbar Christmas Styling */
+.christmas-theme nav {
+  background: linear-gradient(135deg, #8B0000 0%, #C41E3A 100%) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(255, 215, 0, 0.6);
+  box-shadow: 0 4px 20px rgba(196, 30, 58, 0.2), 0 0 40px rgba(255, 215, 0, 0.1);
+}
+
+.christmas-theme nav h1 {
+  /*background: linear-gradient(45deg, #ffd700, #fff, #ffd700, #fff);
+  background-size: 200% auto;*/
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: white;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+}
+
+@keyframes shimmer {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.christmas-theme nav a {
+  color: rgba(255, 255, 255, 0.95) !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.christmas-theme nav a:hover {
+  color: #ffd700 !important;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.christmas-theme nav a.text-indigo-600 {
+  color: #ffd700 !important;
+  border-bottom-color: #ffd700 !important;
+}
+
+.christmas-theme nav .border-indigo-500 {
+  border-bottom-color: #ffd700 !important;
+}
+
+/* User badge in Christmas theme */
+.christmas-theme nav .bg-gray-100 {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Logout button in Christmas theme */
+.christmas-theme nav button:hover {
+  background-color: rgba(255, 215, 0, 0.2) !important;
+  color: #ffd700 !important;
+}
+
+/* Cards and Containers */
+.christmas-theme .bg-white {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 250, 240, 0.95) 100%) !important;
+  border: 2px solid #c41e3a;
+  box-shadow: 0 8px 32px rgba(196, 30, 58, 0.2);
+}
+
+.christmas-theme .shadow,
+.christmas-theme .shadow-lg,
+.christmas-theme .shadow-2xl {
+  box-shadow: 0 10px 40px rgba(196, 30, 58, 0.3) !important;
+}
+
+/* Buttons */
+.christmas-theme button,
+.christmas-theme .bg-indigo-600,
+.christmas-theme .from-indigo-600 {
+  background: linear-gradient(135deg, #c41e3a 0%, #165b33 100%) !important;
+  border-color: #ffd700 !important;
+  transition: all 0.3s ease;
+}
+
+.christmas-theme button:hover,
+.christmas-theme .bg-indigo-600:hover,
+.christmas-theme .from-indigo-600:hover {
+  background: linear-gradient(135deg, #165b33 0%, #c41e3a 100%) !important;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Status Badges - Christmas Colors */
+.christmas-theme .bg-yellow-100 {
+  background-color: #ffd700 !important;
+  color: #8b4513 !important;
+}
+
+.christmas-theme .bg-green-100 {
+  background-color: #165b33 !important;
+  color: #fff !important;
+}
+
+.christmas-theme .bg-blue-100 {
+  background-color: #4169e1 !important;
+  color: #fff !important;
+}
+
+.christmas-theme .bg-red-100 {
+  background-color: #c41e3a !important;
+  color: #fff !important;
+}
+
+/* Text Colors */
+.christmas-theme .text-indigo-600,
+.christmas-theme .text-indigo-700 {
+  color: #c41e3a !important;
+}
+
+.christmas-theme .text-gray-900 {
+  color: #2d1810 !important;
+}
+
+/* Decorative Elements */
+.christmas-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(90deg,
+      #c41e3a 0px,
+      #c41e3a 15px,
+      #ffd700 15px,
+      #ffd700 30px,
+      #165b33 30px,
+      #165b33 45px);
+  z-index: 10001;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* Christmas Lights Effect */
+@keyframes lights {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.christmas-theme .christmas-lights {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  height: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 9998;
+  pointer-events: none;
+  padding: 0 20px;
+}
+
+.christmas-theme .christmas-light {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: lights 1.5s ease-in-out infinite;
+}
+
+.christmas-theme .christmas-light:nth-child(3n+1) {
+  background: #c41e3a;
+  box-shadow: 0 0 10px #c41e3a, 0 0 20px rgba(196, 30, 58, 0.5);
+}
+
+.christmas-theme .christmas-light:nth-child(3n+2) {
+  background: #ffd700;
+  box-shadow: 0 0 10px #ffd700, 0 0 20px rgba(255, 215, 0, 0.5);
+  animation-delay: 0.5s;
+}
+
+.christmas-theme .christmas-light:nth-child(3n+3) {
+  background: #165b33;
+  box-shadow: 0 0 10px #165b33, 0 0 20px rgba(22, 91, 51, 0.5);
+  animation-delay: 1s;
+}
+
+/* Scrollbar Christmas Theme */
+.christmas-theme ::-webkit-scrollbar {
+  width: 12px;
+}
+
+.christmas-theme ::-webkit-scrollbar-track {
+  background: #1a472a;
+}
+
+.christmas-theme ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c41e3a 0%, #165b33 100%);
+  border-radius: 6px;
+  border: 2px solid #ffd700;
+}
+
+.christmas-theme ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #165b33 0%, #c41e3a 100%);
+}
+
+/* Table Styling */
+.christmas-theme table thead {
+  background: linear-gradient(135deg, #c41e3a 0%, #165b33 100%) !important;
+  color: white !important;
+}
+
+.christmas-theme table thead th {
+  color: white !important;
+}
+
+.christmas-theme table tbody tr:hover {
+  background-color: rgba(196, 30, 58, 0.1) !important;
+}
+
+/* Input Fields */
+.christmas-theme input,
+.christmas-theme textarea,
+.christmas-theme select {
+  border-color: #c41e3a !important;
+}
+
+.christmas-theme input:focus,
+.christmas-theme textarea:focus,
+.christmas-theme select:focus {
+  border-color: #ffd700 !important;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2) !important;
+}
+
+/* Links */
+.christmas-theme a {
+  transition: all 0.3s ease;
+}
+
+.christmas-theme a:hover {
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
