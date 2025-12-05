@@ -113,43 +113,48 @@ const Layout = ({ children }) => {
               <div className="hidden sm:flex sm:space-x-8">
                 <Link
                   to="/"
-                  className={`${
-                    location.pathname === "/"
+                  className={`${location.pathname === "/"
                       ? "text-indigo-600 border-indigo-500"
                       : "text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300"
-                  } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-200`}
+                    } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-200`}
                 >
                   Dashboard
                 </Link>
                 <Link
                   to="/jobs"
-                  className={`${
-                    location.pathname.startsWith("/jobs")
+                  className={`${location.pathname.startsWith("/jobs")
                       ? "text-indigo-600 border-indigo-500"
                       : "text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300"
-                  } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-200`}
+                    } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-200`}
                 >
                   Trabajos
                 </Link>
                 <Link
                   to="/inventory"
-                  className={`${
-                    location.pathname.startsWith("/inventory")
+                  className={`${location.pathname.startsWith("/inventory")
                       ? "text-indigo-600 border-indigo-500"
                       : "text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300"
-                  } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-200`}
+                    } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-200`}
                 >
                   Inventario
                 </Link>
                 <Link
                   to="/stock-requests"
-                  className={`${
-                    location.pathname.startsWith("/stock-requests")
+                  className={`${location.pathname.startsWith("/stock-requests")
                       ? "text-indigo-600 border-indigo-500"
                       : "text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300"
-                  } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-200`}
+                    } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-200`}
                 >
                   Pedidos
+                </Link>
+                <Link
+                  to="/users"
+                  className={`${location.pathname.startsWith("/users")
+                      ? "text-indigo-600 border-indigo-500"
+                      : "text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300"
+                    } inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-200`}
+                >
+                  Usuarios
                 </Link>
               </div>
             </div>
@@ -166,11 +171,10 @@ const Layout = ({ children }) => {
                 </span>
                 <button
                   onClick={toggleChristmasTheme}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                    isChristmasTheme
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${isChristmasTheme
                       ? "bg-red-600 focus:ring-red-500"
                       : "bg-gray-300 focus:ring-gray-400"
-                  }`}
+                    }`}
                   title={
                     isChristmasTheme
                       ? "Desactivar tema navideño"
@@ -178,9 +182,8 @@ const Layout = ({ children }) => {
                   }
                 >
                   <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300 ${
-                      isChristmasTheme ? "translate-x-6" : "translate-x-1"
-                    }`}
+                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300 ${isChristmasTheme ? "translate-x-6" : "translate-x-1"
+                      }`}
                   />
                 </button>
               </div>

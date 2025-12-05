@@ -14,6 +14,7 @@
 }
 
 @keyframes twinkle {
+
   0%,
   100% {
     opacity: 1;
@@ -28,6 +29,7 @@
 body.christmas-theme {
   background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 50%, #1a472a 100%);
   background-attachment: fixed;
+  --dt-header-color: white;
 }
 
 /* Snowflakes Container */
@@ -70,6 +72,7 @@ body.christmas-theme {
 }
 
 @keyframes shimmer {
+
   0%,
   100% {
     background-position: 0% 50%;
@@ -116,11 +119,9 @@ body.christmas-theme {
 
 /* Cards and Containers */
 .christmas-theme .bg-white {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 250, 240, 0.95) 100%
-  ) !important;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 250, 240, 0.95) 100%) !important;
   border: 2px solid #c41e3a;
   box-shadow: 0 8px 32px rgba(196, 30, 58, 0.2);
 }
@@ -187,15 +188,13 @@ body.christmas-theme {
   left: 0;
   right: 0;
   height: 4px;
-  background: repeating-linear-gradient(
-    90deg,
-    #c41e3a 0px,
-    #c41e3a 15px,
-    #ffd700 15px,
-    #ffd700 30px,
-    #165b33 30px,
-    #165b33 45px
-  );
+  background: repeating-linear-gradient(90deg,
+      #c41e3a 0px,
+      #c41e3a 15px,
+      #ffd700 15px,
+      #ffd700 30px,
+      #165b33 30px,
+      #165b33 45px);
   z-index: 10001;
   pointer-events: none;
   opacity: 0.8;
@@ -203,6 +202,7 @@ body.christmas-theme {
 
 /* Christmas Lights Effect */
 @keyframes lights {
+
   0%,
   100% {
     opacity: 1;
@@ -442,4 +442,179 @@ body.christmas-theme {
   text-shadow: 0 2px 4px rgba(196, 30, 58, 0.5);
   font-weight: 800;
   letter-spacing: 0.5px;
+}
+
+/* SweetAlert2 Button Color Overrides - Use Standard Colors Instead of Christmas Theme */
+.christmas-theme .swal2-confirm {
+  background-color: #dc2626 !important;
+  border-color: #dc2626 !important;
+}
+
+.christmas-theme .swal2-confirm:hover {
+  background-color: #b91c1c !important;
+  border-color: #b91c1c !important;
+}
+
+.christmas-theme .swal2-cancel {
+  background-color: #6b7280 !important;
+  border-color: #6b7280 !important;
+}
+
+.christmas-theme .swal2-cancel:hover {
+  background-color: #4b5563 !important;
+  border-color: #4b5563 !important;
+}
+
+/* For convert button (green) */
+.christmas-theme .swal2-styled.swal2-confirm[style*='background-color: rgb(22, 163, 74)'] {
+  background-color: #16a34a !important;
+  border-color: #16a34a !important;
+}
+
+.christmas-theme .swal2-styled.swal2-confirm[style*='background-color: rgb(22, 163, 74)']:hover {
+  background-color: #15803d !important;
+  border-color: #15803d !important;
+}
+
+/* Specific Button Overrides for Christmas Theme */
+
+/* Form Cancel Button - Reset to white/gray */
+.christmas-theme button.bg-white.border-gray-300 {
+  background: #ffffff !important;
+  border-color: #d1d5db !important;
+  color: #374151 !important;
+}
+
+.christmas-theme button.bg-white.border-gray-300:hover {
+  background: #f9fafb !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Inventory Table Buttons (Excel, PDF) */
+.christmas-theme button.border-green-600 {
+  background: #ffffff !important;
+  border-color: #16a34a !important;
+  color: #16a34a !important;
+}
+
+.christmas-theme button.border-green-600:hover {
+  background: #f0fdf4 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.christmas-theme button.border-red-600 {
+  background: #ffffff !important;
+  border-color: #dc2626 !important;
+  color: #dc2626 !important;
+}
+
+.christmas-theme button.border-red-600:hover {
+  background: #fef2f2 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Inventory Row Delete Button */
+.christmas-theme button.text-red-600 {
+  background: transparent !important;
+  border: none !important;
+  color: #dc2626 !important;
+  box-shadow: none !important;
+}
+
+.christmas-theme button.text-red-600:hover {
+  background: transparent !important;
+  color: #b91c1c !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* React Data Table Component Overrides for Christmas Theme */
+
+/* Header */
+.christmas-theme .rdt_TableHeadRow {
+  background: linear-gradient(135deg, #c41e3a 0%, #165b33 100%) !important;
+  color: white !important;
+  border-bottom: 2px solid #ffd700 !important;
+}
+
+
+
+.christmas-theme .rdt_TableHeadRow div {
+  color: white !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+}
+
+/* More specific selectors for header cells */
+.christmas-theme .rdt_TableCol,
+.christmas-theme .rdt_TableCol_Sortable {
+  color: white !important;
+}
+
+/* Sort icons */
+.christmas-theme .rdt_TableCol svg,
+.christmas-theme .rdt_TableCol_Sortable svg {
+  fill: white !important;
+  color: white !important;
+}
+
+/* Rows */
+.christmas-theme .rdt_TableRow {
+  background-color: transparent !important;
+  color: #2d1810 !important;
+  border-bottom: 1px solid rgba(196, 30, 58, 0.2) !important;
+}
+
+.christmas-theme .rdt_TableRow:hover {
+  background-color: rgba(196, 30, 58, 0.1) !important;
+  transition: all 0.2s ease !important;
+  transform: scale(1.001) !important;
+  box-shadow: 0 4px 6px -1px rgba(196, 30, 58, 0.1) !important;
+}
+
+/* Pagination */
+.christmas-theme .rdt_Pagination {
+  background-color: transparent !important;
+  color: white !important;
+  border-top: 1px solid rgba(196, 30, 58, 0.2) !important;
+}
+
+.christmas-theme .rdt_Pagination button {
+  fill: white !important;
+  color: white !important;
+  background: transparent !important;
+}
+
+.christmas-theme .rdt_Pagination button:hover {
+  background-color: rgba(196, 30, 58, 0.1) !important;
+}
+
+.christmas-theme .rdt_Pagination button:disabled {
+  fill: rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Pagination text */
+.christmas-theme .rdt_Pagination div,
+.christmas-theme .rdt_Pagination select,
+.christmas-theme .rdt_Pagination option {
+  color: white !important;
+}
+
+/* Empty State */
+.christmas-theme .rdt_Table div:first-child {
+  color: #2d1810 !important;
+}
+
+/* Search/Filter Input */
+.christmas-theme .rdt_TableHeadRow input,
+.christmas-theme input[type="text"]::placeholder {
+  color: white !important;
+}
+
+.christmas-theme input[type="text"] {
+  color: white !important;
 }

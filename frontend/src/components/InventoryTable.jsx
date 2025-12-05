@@ -32,7 +32,7 @@ const InventoryTable = () => {
       text: `¿Deseas eliminar "${name}" del inventario?`,
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#c41e3a",
+      confirmButtonColor: "#dc2626",
       cancelButtonColor: "#6b7280",
       confirmButtonText: "Sí, eliminar",
       cancelButtonText: "Cancelar",
@@ -259,9 +259,8 @@ const InventoryTable = () => {
       sortable: true,
       cell: (row) => (
         <div
-          className={`text-sm font-semibold ${
-            row.stock <= row.minStock ? "text-red-600" : "text-gray-900"
-          }`}
+          className={`text-sm font-semibold ${row.stock <= row.minStock ? "text-red-600" : "text-gray-900"
+            }`}
         >
           {row.stock}
         </div>
@@ -298,22 +297,32 @@ const InventoryTable = () => {
     },
     headRow: {
       style: {
-        backgroundColor: "rgba(249, 250, 251, 0.5)", // gray-50 with opacity
+        backgroundColor: "rgba(255, 255, 255, 0.5)",
         borderBottomWidth: "1px",
-        borderBottomColor: "rgba(229, 231, 235, 0.5)", // gray-200
+        borderBottomColor: "rgba(229, 231, 235, 0.5)",
+        color: "var(--dt-header-color, #4b5563)",
+        fontWeight: "600",
+        fontSize: "0.875rem",
+        textTransform: "uppercase",
+        letterSpacing: "0.05em",
       },
     },
     rows: {
       style: {
         backgroundColor: "transparent",
+        fontSize: "0.875rem",
+        color: "#1f2937",
         "&:not(:last-of-type)": {
           borderBottomStyle: "solid",
           borderBottomWidth: "1px",
-          borderBottomColor: "rgba(229, 231, 235, 0.5)",
+          borderBottomColor: "rgba(229, 231, 235, 0.3)",
         },
         "&:hover": {
-          backgroundColor: "rgba(243, 244, 246, 0.4)", // gray-100
-          transition: "all 0.2s",
+          backgroundColor: "rgba(255, 255, 255, 0.6)",
+          transition: "all 0.2s ease-in-out",
+          transform: "scale(1.001)",
+          boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)",
+          zIndex: 1,
         },
       },
     },
@@ -322,6 +331,20 @@ const InventoryTable = () => {
         backgroundColor: "transparent",
         borderTopWidth: "1px",
         borderTopColor: "rgba(229, 231, 235, 0.5)",
+        color: "#6b7280",
+        fontSize: "0.875rem",
+      },
+    },
+    headCells: {
+      style: {
+        paddingLeft: "16px",
+        paddingRight: "16px",
+      },
+    },
+    cells: {
+      style: {
+        paddingLeft: "16px",
+        paddingRight: "16px",
       },
     },
   };

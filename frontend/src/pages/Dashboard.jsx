@@ -112,6 +112,7 @@ const Dashboard = () => {
   };
 
   const formatDate = (dateString) => {
+    if (!dateString) return "Fecha no válida";
     // Parse the date string correctly to avoid timezone issues
     const date = new Date(dateString);
     // Add timezone offset to get the correct local date
@@ -312,9 +313,8 @@ const Dashboard = () => {
                 Insumos Bajos
               </dt>
               <dd
-                className={`mt-1 text-3xl font-semibold ${
-                  stats.lowStockItems > 0 ? "text-red-600" : "text-gray-900"
-                }`}
+                className={`mt-1 text-3xl font-semibold ${stats.lowStockItems > 0 ? "text-red-600" : "text-gray-900"
+                  }`}
               >
                 {stats.lowStockItems}
               </dd>
@@ -382,11 +382,10 @@ const Dashboard = () => {
                   <div
                     className="bg-yellow-400 h-2.5 rounded-full"
                     style={{
-                      width: `${
-                        jobStats.total > 0
+                      width: `${jobStats.total > 0
                           ? (jobStats.pending / jobStats.total) * 100
                           : 0
-                      }%`,
+                        }%`,
                     }}
                   ></div>
                 </div>
@@ -402,11 +401,10 @@ const Dashboard = () => {
                   <div
                     className="bg-blue-600 h-2.5 rounded-full"
                     style={{
-                      width: `${
-                        jobStats.total > 0
+                      width: `${jobStats.total > 0
                           ? (jobStats.inProgress / jobStats.total) * 100
                           : 0
-                      }%`,
+                        }%`,
                     }}
                   ></div>
                 </div>
@@ -422,11 +420,10 @@ const Dashboard = () => {
                   <div
                     className="bg-green-600 h-2.5 rounded-full"
                     style={{
-                      width: `${
-                        jobStats.total > 0
+                      width: `${jobStats.total > 0
                           ? (jobStats.completed / jobStats.total) * 100
                           : 0
-                      }%`,
+                        }%`,
                     }}
                   ></div>
                 </div>
@@ -442,11 +439,10 @@ const Dashboard = () => {
                   <div
                     className="bg-red-600 h-2.5 rounded-full"
                     style={{
-                      width: `${
-                        jobStats.total > 0
+                      width: `${jobStats.total > 0
                           ? (jobStats.cancelled / jobStats.total) * 100
                           : 0
-                      }%`,
+                        }%`,
                     }}
                   ></div>
                 </div>
@@ -485,7 +481,7 @@ const Dashboard = () => {
                         {getStatusBadge(job.statusId)}
                         {job.serviceType && (
                           <span className="text-xs text-gray-500">
-                            {job.serviceType.name}
+                            {job.serviceType?.name || "Sin tipo"}
                           </span>
                         )}
                       </div>

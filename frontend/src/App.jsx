@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Login from "./components/Login";
-import Register from "./components/Register";
+// import Register from "./components/Register"; // Removed
 import ForgotPassword from "./components/ForgotPassword";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Layout from "./components/Layout";
@@ -13,6 +13,8 @@ import InventoryTable from "./components/InventoryTable";
 import InventoryForm from "./components/InventoryForm";
 import StockRequestList from "./components/StockRequestList";
 import StockRequestForm from "./components/StockRequestForm";
+import UserManagement from "./components/UserManagement";
+import UserForm from "./components/UserForm";
 
 function App() {
   return (
@@ -20,7 +22,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          {/* Public Register Removed - Moved to Internal User Management */}
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
             path="/*"
@@ -42,6 +44,8 @@ function App() {
                       path="/stock-requests/new"
                       element={<StockRequestForm />}
                     />
+                    <Route path="/users" element={<UserManagement />} />
+                    <Route path="/users/new" element={<UserForm />} />
                   </Routes>
                 </Layout>
               </ProtectedRoute>
